@@ -12,19 +12,19 @@ export class HeaderComponent implements OnInit {
   email: string;
   admin: boolean;
 
-  constructor(private router:Router, private transferService:DataTransferService) {
+  constructor(private transferService:DataTransferService, private router:Router) {
   }
 
   ngOnInit(): void {
     this.transferService.currentUserSubject.subscribe(value => {
-      if(value) {
-        this.email = value.email
-        this.admin = value.is_staff
+      if(value){
+        this.email = value.email;
+        this.admin = value.is_staff;
       }
     })
   }
 
-  isAdmin():void {
+  toAdmin():void {
     this.router.navigate(['admin'])
   }
 }

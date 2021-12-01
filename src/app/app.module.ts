@@ -3,19 +3,16 @@ import {BrowserModule} from '@angular/platform-browser';
 
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
-import {HttpClientModule} from "@angular/common/http";
-import { CarsComponent } from './components/cars/cars.component';
-import { CarComponent } from './components/cars/car/car.component';
-import { HomeComponent } from './components/home/home.component';
-import { HeaderComponent } from './components/header/header.component';
-import { LoginComponent } from './components/login/login.component';
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
+import {HomeComponent} from './components/home/home.component';
+import {HeaderComponent} from './components/header/header.component';
+import {LoginComponent} from './components/login/login.component';
 import {ReactiveFormsModule} from "@angular/forms";
+import {MainInterceptor} from "./main.interceptor";
 
 @NgModule({
   declarations: [
     AppComponent,
-    CarsComponent,
-    CarComponent,
     HomeComponent,
     HeaderComponent,
     LoginComponent
@@ -26,7 +23,13 @@ import {ReactiveFormsModule} from "@angular/forms";
     HttpClientModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      multi: true,
+      useClass: MainInterceptor
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

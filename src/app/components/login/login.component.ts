@@ -17,11 +17,12 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
     this.loginForm = new FormGroup({
       email: new FormControl(''),
-      password: new FormControl(''),
+      password: new FormControl('')
     })
   }
 
-  login():void {
+  login(): void {
     this.authService.login(this.loginForm.getRawValue()).subscribe()
   }
+
 }
