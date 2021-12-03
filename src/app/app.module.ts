@@ -3,19 +3,18 @@ import {BrowserModule} from '@angular/platform-browser';
 
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
-import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
-import {HomeComponent} from './components/home/home.component';
-import {HeaderComponent} from './components/header/header.component';
-import {LoginComponent} from './components/login/login.component';
+import {HttpClientModule} from "@angular/common/http";
 import {ReactiveFormsModule} from "@angular/forms";
-import {MainInterceptor} from "./main.interceptor";
+import { HomeComponent } from './components/home/home.component';
+import { HeaderComponent } from './components/header/header.component';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     HeaderComponent,
-    LoginComponent
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -23,13 +22,8 @@ import {MainInterceptor} from "./main.interceptor";
     HttpClientModule,
     ReactiveFormsModule
   ],
-  providers: [
-    {
-      provide: HTTP_INTERCEPTORS,
-      multi: true,
-      useClass: MainInterceptor
-    }
-  ],
+  providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

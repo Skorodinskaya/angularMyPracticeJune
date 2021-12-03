@@ -1,4 +1,4 @@
-export interface ICAr {
+export interface ICar {
   id: number;
   brand: string;
   year: number;

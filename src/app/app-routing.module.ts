@@ -9,6 +9,7 @@ const routes: Routes = [
       {path: '', redirectTo: 'login', pathMatch: 'full'},
       {path: 'login', component: LoginComponent},
       {path: 'admin', loadChildren:() => import('./components/admin/admin.module').then(value => value.AdminModule)}
+
     ]
   }
 ];
@@ -17,4 +18,5 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+}
